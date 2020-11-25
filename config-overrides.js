@@ -9,8 +9,8 @@ module.exports = override(
     }),
     addLessLoader({
         lessOptions: {
-            strictMath: true,
-            noIeCompat: true,
+            //strictMath: true,
+            //noIeCompat: true,
             javascriptEnabled: true,
             modifyVars: myTheme,
         }

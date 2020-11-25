@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Login from './pages/login/Login';
-import './theme/default.less';
+import App from './pages/App';
 
 const rootElement = document.getElementById('root');
-ReactDOM.render(<Login/>, rootElement);
+ReactDOM.render(<App />, rootElement);
