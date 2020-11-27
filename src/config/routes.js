@@ -1,5 +1,6 @@
 import React from 'react';
-import Login from '../pages/user/login/Login';
+import UserLogin from '../pages/user/login/Login';
+import MessageList from '../pages/message/list/List';
 import Error404 from '../pages/error/Error404';
 
 /**
@@ -16,7 +17,12 @@ import Error404 from '../pages/error/Error404';
 const routes = [
     {
         path: "/user/login",
-        component: Login,
+        component: UserLogin,
+        exact: true
+    },
+    {
+        path: "/message/list",
+        component: MessageList,
         exact: true
     },
     {

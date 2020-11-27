@@ -1,17 +1,23 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import {Button, InputItem, List, WingBlank} from 'antd-mobile';
+import * as ActionType from '../../../redux/action-type.js';
+
 import logo from '@/assets/logo/logo192.png';
 import lock from '@/assets/icons/lock.svg';
 import user from '@/assets/icons/user.svg';
 
 class Login extends React.Component {
-    constructor(props) {
-        super(props);
+
+    static propTypes = {
+        authToken: PropTypes.object,
+        authUser: PropTypes.object,
     }
 
     render() {
         return (
-            <div className="login-wrapper">
+            <div className="user-login-wrapper">
                 <div className="login-logo">
                     <img className="logo" src={logo}/>
                     <span className="app-name">Dong Dong</span>
@@ -53,4 +59,20 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+/**
+ * TODO: 生成容器组件
+ */
+//把this.state转换为组件属性
+const mapStateToProps = (state, ownProps) => ({
+    userInfo: state.userInfo,
+});
+//把组件方法转换为组件属性
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    loginDispatch: (number) => dispatch({
+        type: ActionType.LOGIN,
+        payload: {}
+    }),
+});
+
+//通过redux的connect方法连接用户组件与store(即：使用户组件能够与store进行通讯)
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
